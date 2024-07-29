@@ -1,0 +1,14 @@
+<Benchmark Name="Chess_TAMP_Experiment">
+    <!-- Problem files for different planning strategies or configurations -->
+    <Problem File="OMPL_RRTconnect03_chess_project.xml" PlannerAlias="RRTconnect0.3"/>
+    <Problem File="OMPL_RRTconnect05_chess_project.xml" PlannerAlias="RRTconnect0.5"/>
+    <Problem File="OMPL_RRTconnect07_chess_project.xml" PlannerAlias="RRTconnect0.7"/>
+    <Problem File="OMPL_RRTconnect09_chess_project.xml" PlannerAlias="RRTconnect0.9"/>
+
+    <!-- Benchmark parameters -->
+    <Parameter Name="maxTime" Value="40.0" /> <!-- Maximum time in seconds for each run -->
+    <Parameter Name="maxMem" Value="16000.0" /> <!-- Maximum memory in MB -->
+    <Parameter Name="runCount" Value="10" /> <!-- Number of runs for each problem -->
+    <Parameter Name="displayProgress" Value="true" /> <!-- Display progress during benchmarking -->
+    <Parameter Name="filename" Value="chess_TAMP_results.log" /> <!-- Output file for benchmark results -->
+</Benchmark>

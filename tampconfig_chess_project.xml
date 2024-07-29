@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<Config>
+    <Problemfiles>
+        <pddldomain name="ff-domains/chess_2_play_manipulation_domain.pddl" />
+        <pddlproblem name="ff-domains/chess_2_play_manipulation_problem" />
+        <kautham name="OMPL_RRTconnect_chess_project.xml" />
+        <directory name="/demos/OMPL_geo_demos/chess/"/>
+        <graspit name=""/>
+    </Problemfiles>
+    <States>
+        <Initial>
+            <Object name="PAWNB1" kthname="pawnB1">0.175 0 0.91 1 0 0 0</Object>
+            <Object name="PAWNB2" kthname="pawnB2">0.245 0 0.91 1 0 0 0</Object>
+            <Object name="PAWNB3" kthname="pawnB3">0.125 0 0.91 1 0 0 0</Object>
+            <Object name="PAWNW1" kthname="pawnW1">0.365 0 0.91 1 0 0 0</Object>
+            <Object name="PAWNW2" kthname="pawnW2">0.485 0 0.91 1 0 0 0</Object>
+            <Robot name="ur3_robotniq_A" controlfile="controls/ur3_robotniq_A.cntr">0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</Robot>
+            <Robot name="ur3_robotniq_B" controlfile="controls/ur3_robotniq_B.cntr">0.643239 0.213521 0.770563 0.245352 0.261268 0.5 0.538</Robot>
+        </Initial>
+    </States>
+    <Actions>
+        <!-- Action 1: PICK UR3A PAWNW2 POS7 -->
+        <Pick robot="UR3A" object="PAWNW2" region="POS7">
+            <Rob>0</Rob>
+            <Obj>pawnW2</Obj>
+            <Link>9</Link>
+            <Cont>controls/ur3_robotniq_A.cntr</Cont>
+            <Regioncontrols>0.749 0.181 0.84 0.204 0.265 0.49 0.512</Regioncontrols>
+             <Graspcontrols grasp="topgrasp">0.749 0.223 0.84 0.194 0.265 0.491 0.538</Graspcontrols>
+        </Pick>
+
+        <!-- Action 2: PLACE UR3A PAWNW2 POS2 -->
+        <Place robot="UR3A" object="PAWNW2" region="POS2">
+            <Rob>0</Rob>
+            <Obj>pawnW2</Obj>
+            <Cont>controls/ur3_robotniq_A.cntr</Cont>
+            <Regioncontrols>0.766 0.295 0.716 0.24 0.24 0.024 0.538</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.766 0.307 0.75 0.2 0.242 0.015 0.538</Graspcontrols>
+        </Place>
+
+        <!-- Action 3: SWITCH_TURN UR3A UR3B -->
+        <Switch_turn robot="UR3A" next="UR3B">
+            <Rob>0</Rob>
+            <Next>1</Next>
+        </Switch_turn>
+
+        <!-- Action 4: PICK UR3B PAWNB3 POS1 -->
+        <Pick robot="UR3B" object="PAWNB3" region="POS1">
+            <Rob>1</Rob>
+            <Obj>pawnB3</Obj>
+            <Link>9</Link>
+            <Cont>controls/ur3_robotniq_B.cntr</Cont>
+            <Regioncontrols> 0.236 0.299 0.207 0.26 0.749 0.484 0.6</Regioncontrols>
+             <!-- <Regionalcontrols>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</Regionalcontrols> -->
+            <Graspcontrols grasp="topgrasp">0.236 0.274 0.163 0.313 0.749 0.484 0.6</Graspcontrols>
+        </Pick>
+
+        <!-- Action 5: PLACE UR3B PAWNB3 POS4 -->
+        <Place robot="UR3B" object="PAWNB3" region="POS4">
+            <Rob>1</Rob>
+            <Obj>pawnB3</Obj>
+            <Cont>controls/ur3_robotniq_B.cntr</Cont>
+            <Regioncontrols>0.341 0.233 0.274 0.236 0.736 0.593 0.6</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.341 0.206 0.236 0.3 0.75 0.59 0.6</Graspcontrols>
+        </Place>
+
+        <!-- Action 6: SWITCH_TURN UR3B UR3A -->
+        <Switch_turn robot="UR3B" next="UR3A">
+            <Rob>1</Rob>
+            <Next>0</Next>
+        </Switch_turn>
+
+        <!-- Action 7: PICK UR3A PAWNB1 POS8 -->
+        <Pick robot="UR3A" object="PAWNB1" region="POS8">
+            <Rob>0</Rob>
+            <Obj>pawnB1</Obj>
+            <Link>9</Link>
+            <Cont>controls/ur3_robotniq_A.cntr</Cont>
+            <Regioncontrols>0.75 0.302 0.664 0.272 0.262 0.524 0.5</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.761 0.342 0.691 0.231 0.246 0.5 0.596</Graspcontrols>
+        </Pick>
+
+        <!-- Action 8: PLACE UR3A PAWNB1 ELIMPOS1 -->
+        <Place robot="UR3A" object="PAWNB1" region="ELIMPOS1">
+            <Rob>0</Rob>
+            <Obj>pawnB1</Obj>
+            <Cont>controls/ur3_robotniq_A.cntr</Cont>
+            <Regioncontrols>0.795 0.316 0.691 0.244 0.245 0.536 0.596</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.795 0.342 0.691 0.231 0.246 0.311 0.596</Graspcontrols>
+        </Place>
+
+        <!-- Action 9: PICK UR3A PAWNW1 POS5 -->
+        <Pick robot="UR3A" object="PAWNW1" region="POS5">
+            <Rob>0</Rob>
+            <Obj>pawnW1</Obj>
+            <Link>9</Link>
+            <Cont>controls/ur3_robotniq_A.cntr</Cont>
+            <Regioncontrols>0.674 0.176 0.827 0.245 0.26 0.422 0.350</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.666 0.203 0.86 0.196 0.265 0.424 0.40</Graspcontrols>
+        </Pick>
+
+        <!-- Action 10: PLACE UR3A PAWNW1 POS8 -->
+        <Place robot="UR3A" object="PAWNW1" region="POS8">
+            <Rob>0</Rob>
+            <Obj>pawnW1</Obj>
+            <Cont>controls/ur3_robotniq_A.cntr</Cont>
+            <Regioncontrols>0.75 0.302 0.664 0.272 0.262 0.524 0.5</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.761 0.342 0.691 0.231 0.246 0.5 0.596</Graspcontrols>
+        </Place>
+
+        <!-- Action 11: SWITCH_TURN UR3A UR3B -->
+        <Switch_turn robot="UR3A" next="UR3B">
+            <Rob>0</Rob>
+            <Next>1</Next>
+        </Switch_turn>
+
+        <!-- Action 12: PICK UR3B PAWNB2 POS3 -->
+        <Pick robot="UR3B" object="PAWNB2" region="POS3">
+            <Rob>1</Rob>
+            <Obj>pawnB2</Obj>
+            <Link>9</Link>
+            <Cont>controls/ur3_robotniq_B.cntr</Cont>
+            <Regioncontrols>0.316 0.316 0.178 0.259 0.749 0.561 0.5</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.321 0.301 0.135 0.315 0.747 0.56 0.628</Graspcontrols>
+        </Pick>
+
+        <!-- Action 13: PLACE UR3B PAWNB2 POS6 -->
+        <Place robot="UR3B" object="PAWNB2" region="POS6">
+            <Rob>1</Rob>
+            <Obj>pawnB2</Obj>
+            <Cont>controls/ur3_robotniq_B.cntr</Cont>
+            <Regioncontrols> 0.236 0.299 0.207 0.26 0.749 0.484 0.6</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.236 0.274 0.163 0.313 0.749 0.484 0.6</Graspcontrols>
+        </Place>
+    </Actions>
+</Config>
